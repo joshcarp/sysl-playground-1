@@ -62,13 +62,15 @@ func (p *PageView) Render() vecty.ComponentOrHTML {
 			vecty.Text("Sysl Playground"),
 			vecty.Markup(
 				vecty.Style("font-family", "monospace"),
-				vecty.Style("font-size", "25px"),
+				vecty.Style("font-size", "50px"),
 			),
 		),
 		elem.Article(
 			vecty.Text("Welcome to the Sysl Playground"),
 			vecty.Markup(
 				vecty.Style("font-family", "monospace"),
+				vecty.Style("font-size", "25px"),
+
 			),
 		),
 
@@ -79,9 +81,10 @@ func (p *PageView) Render() vecty.ComponentOrHTML {
 					elem.TextArea(
 						vecty.Markup(
 							vecty.Style("font-family", "monospace"),
+							vecty.Style("font-size", "25px"),
 							vecty.Property("rows", 14),
 							vecty.Property("cols", 70),
-
+							
 							// When input is typed into the textarea, update the local
 							// component state and rerender.
 							event.Input(func(e *vecty.Event) {
@@ -101,6 +104,7 @@ func (p *PageView) Render() vecty.ComponentOrHTML {
 					elem.TextArea(
 						vecty.Markup(
 							vecty.Style("font-family", "monospace"),
+							vecty.Style("font-size", "25px"),
 							vecty.Property("rows", 1),
 							vecty.Property("cols", 70),
 
@@ -119,6 +123,8 @@ func (p *PageView) Render() vecty.ComponentOrHTML {
 			elem.Button(
 				vecty.Markup(
 					vecty.UnsafeHTML("Share"),
+					vecty.Style("width", "80px"),
+					vecty.Style("height", "40px"),
 					event.Click(func(e *vecty.Event) {
 						p.Link = urls.EncodeUrl(p.Input, p.Command)
 						vecty.Rerender(p)
@@ -131,6 +137,7 @@ func (p *PageView) Render() vecty.ComponentOrHTML {
 				elem.TextArea(
 					vecty.Markup(
 						vecty.Style("font-family", "monospace"),
+						vecty.Style("font-size", "25px"),
 						vecty.Property("rows", 7),
 						vecty.Property("cols", 70),
 						vecty.Property("wrap", "hard"),
@@ -168,14 +175,9 @@ func (m *Markdown) Render() (res vecty.ComponentOrHTML) {
 
 	output, err := syslUtil.Parse(m.Input, m.Command)
 	check(err)
-	image := fmt.Sprintf("<img src=\"%s\">", string(output))
+	image := fmt.Sprintf(`<img src="%s" width="200% height="200%">`, string(output))
 
-	return elem.Div(
-		vecty.Markup(
-			vecty.UnsafeHTML(
-				image),
-		),
-	)
+	return elem.TableData(vecty.Markup(vecty.UnsafeHTML(image)))
 }
 
 func check(err error) {
