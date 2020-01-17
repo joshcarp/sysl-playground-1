@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"regexp"
 
-	"github.com/Joshcarp/sysl_testing/pkg/command"
+	"github.com/Joshcarp/sysl/pkg/command"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/afero"
 )
