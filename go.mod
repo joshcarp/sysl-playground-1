@@ -1,4 +1,4 @@
-module github.com/Joshcarp/sysl_testing-playground
+module github.com/Joshcarp/sysl-playground
 
 go 1.12
 
