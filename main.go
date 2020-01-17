@@ -17,15 +17,17 @@ type PageView struct {
 	Command   string
 	Link      string
 	InputLink string
+	Plantuml  string
 }
 
 func main() {
 	input, cmd := setup()
 
-	vecty.SetTitle("SYSL Playground")
+	vecty.SetTitle("Sysl Playground")
 	vecty.RenderBody(&PageView{
-		Input:   input,
-		Command: cmd,
+		Input:    input,
+		Command:  cmd,
+		Plantuml: "http://plantuml.com/plantuml",
 	})
 }
 
@@ -62,15 +64,21 @@ func (p *PageView) Render() vecty.ComponentOrHTML {
 			vecty.Text("Sysl Playground"),
 			vecty.Markup(
 				vecty.Style("font-family", "monospace"),
-				vecty.Style("font-size", "50px"),
+				vecty.Style("font-size", "30px"),
 			),
 		),
 		elem.Article(
 			vecty.Text("Welcome to the Sysl Playground"),
 			vecty.Markup(
 				vecty.Style("font-family", "monospace"),
-				vecty.Style("font-size", "25px"),
-
+				vecty.Style("font-size", "20px"),
+			),
+		),
+		elem.Article(
+			vecty.Text("Service to use:"),
+			vecty.Markup(
+				vecty.Style("font-family", "monospace"),
+				vecty.Style("font-size", "15px"),
 			),
 		),
 
@@ -78,86 +86,118 @@ func (p *PageView) Render() vecty.ComponentOrHTML {
 		elem.Table(
 			elem.TableRow(
 				elem.TableData(
-					elem.TextArea(
-						vecty.Markup(
-							vecty.Style("font-family", "monospace"),
-							vecty.Style("font-size", "25px"),
-							vecty.Property("rows", 14),
-							vecty.Property("cols", 70),
-							
-							// When input is typed into the textarea, update the local
-							// component state and rerender.
-							event.Input(func(e *vecty.Event) {
-								p.Input = e.Target.Get("value").String()
-								vecty.Rerender(p)
-							}),
-						),
-						vecty.Text(p.Input), // initial textarea text.
-					),
-				),
-				elem.TableData(
-					&Markdown{Input: p.Input, Command: p.Command},
-				),
-			),
-			elem.TableRow(
-				elem.TableData(
-					elem.TextArea(
-						vecty.Markup(
-							vecty.Style("font-family", "monospace"),
-							vecty.Style("font-size", "25px"),
-							vecty.Property("rows", 1),
-							vecty.Property("cols", 70),
+					elem.Table(
+						elem.TableRow(
+							elem.TableData(
+								elem.TextArea(
+									vecty.Markup(
+										vecty.Style("font-family", "monospace"),
+										vecty.Style("font-size", "17px"),
+										vecty.Property("rows", 2),
+										vecty.Property("cols", 70),
 
-							// When input is typed into the textarea, update the local
-							// component state and rerender.
-							event.Input(func(e *vecty.Event) {
-								p.Command = e.Target.Get("value").String()
-								vecty.Rerender(p)
-							}),
+										// When input is typed into the textarea, update the local
+										// component state and rerender.
+										event.Input(func(e *vecty.Event) {
+											p.Plantuml = e.Target.Get("value").String()
+											vecty.Rerender(p)
+										}),
+									),
+									vecty.Text(p.Plantuml),
+								),
+							),
 						),
-						vecty.Text(p.Command), // initial textarea text.
+						elem.TableRow(
+							elem.TableData(
+								elem.TextArea(
+									vecty.Markup(
+										vecty.Style("font-family", "monospace"),
+										vecty.Style("font-size", "17px"),
+										vecty.Property("rows", 14),
+										vecty.Property("cols", 70),
+
+										// When input is typed into the textarea, update the local
+										// component state and rerender.
+										event.Input(func(e *vecty.Event) {
+											p.Plantuml = e.Target.Get("value").String()
+											vecty.Rerender(p)
+										}),
+									),
+									vecty.Text(p.Input), // initial textarea text.
+								),
+							),
+						),
+						elem.TableRow(
+							elem.TableData(
+								elem.TextArea(
+									vecty.Markup(
+										vecty.Style("font-family", "monospace"),
+										vecty.Style("font-size", "17px"),
+										vecty.Property("rows", 1),
+										vecty.Property("cols", 70),
+
+										// When input is typed into the textarea, update the local
+										// component state and rerender.
+										event.Input(func(e *vecty.Event) {
+											p.Command = e.Target.Get("value").String()
+											vecty.Rerender(p)
+										}),
+									),
+									vecty.Text(p.Command), // initial textarea text.
+								),
+							),
+						),
+						elem.TableRow(
+							elem.TableData(
+
+								elem.Button(
+									vecty.Markup(
+										vecty.UnsafeHTML("Share"),
+										vecty.Style("width", "75px"),
+										vecty.Style("height", "30px"),
+										event.Click(func(e *vecty.Event) {
+											p.Link = urls.EncodeUrl(p.Input, p.Command)
+											vecty.Rerender(p)
+										}),
+									),
+								),
+							),
+						),
+						elem.TableRow(
+							elem.TableData(
+								elem.TextArea(
+									vecty.Markup(
+										vecty.Style("font-family", "monospace"),
+										vecty.Style("font-size", "17px"),
+										vecty.Property("rows", 7),
+										vecty.Property("cols", 70),
+										vecty.Property("wrap", "hard"),
+										event.Input(func(e *vecty.Event) {
+											p.InputLink = e.Target.Get("value").String()
+										}),
+									),
+									vecty.Text(p.Link),
+								),
+							),
+						),
 					),
 				),
-			)),
-		elem.TableRow(
-			elem.Button(
-				vecty.Markup(
-					vecty.UnsafeHTML("Share"),
-					vecty.Style("width", "80px"),
-					vecty.Style("height", "40px"),
-					event.Click(func(e *vecty.Event) {
-						p.Link = urls.EncodeUrl(p.Input, p.Command)
-						vecty.Rerender(p)
-					}),
-				),
-			),
-		),
-		elem.TableRow(
-			elem.TableData(
-				elem.TextArea(
-					vecty.Markup(
-						vecty.Style("font-family", "monospace"),
-						vecty.Style("font-size", "25px"),
-						vecty.Property("rows", 7),
-						vecty.Property("cols", 70),
-						vecty.Property("wrap", "hard"),
-						event.Input(func(e *vecty.Event) {
-							p.InputLink = e.Target.Get("value").String()
-						}),
-					),
-					vecty.Text(p.Link),
+				elem.TableData(
+					&Markdown{Input: p.Input, Command: p.Command, Plantuml: p.Plantuml},
 				),
 			),
 		),
 	)
+
 }
 
 // Markdown is a simple component which renders the Input markdown as sanitized
 // HTML into a div.
 type Markdown struct {
 	vecty.Core
-	Input   string `vecty:"prop"`
-	Command string `vecty:"prop"`
+	Input    string `vecty:"prop"`
+	Command  string `vecty:"prop"`
+	Plantuml string `vecty:"prop"`
 }
 
 // Render implements the vecty.Component interface.
@@ -175,7 +215,7 @@ func (m *Markdown) Render() (res vecty.ComponentOrHTML) {
 
 	output, err := syslUtil.Parse(m.Input, m.Command)
 	check(err)
-	image := fmt.Sprintf(`<img src="http://plantuml.com/plantuml/svg/%s" width="200% height="200%">`, string(output))
+	image := fmt.Sprintf(`<img src="%s/svg/%s" width="150% height="150%">`, m.Plantuml, string(output))
 
 	return elem.TableData(vecty.Markup(vecty.UnsafeHTML(image)))
 }
