@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/Joshcarp/sysl-playground/pkg/syslUtil"
-	"github.com/Joshcarp/sysl-playground/pkg/urls"
+	"github.com/Joshcarp/sysl_testing-playground/pkg/syslUtil"
+	"github.com/Joshcarp/sysl_testing-playground/pkg/urls"
 	"github.com/gopherjs/vecty"
 	"github.com/gopherjs/vecty/elem"
 	"github.com/gopherjs/vecty/event"
@@ -47,7 +47,7 @@ Server:
                         return MobileApp.LoginResponse`
 	}
 	if cmd == "" {
-		cmd = "sysl sd -o \"project.svg\" -s \"MobileApp <- Login\" tmp.sysl"
+		cmd = "sysl sd -o \"project.uml\" -s \"MobileApp <- Login\" tmp.sysl"
 	}
 	return input, cmd
 }
@@ -175,7 +175,7 @@ func (m *Markdown) Render() (res vecty.ComponentOrHTML) {
 
 	output, err := syslUtil.Parse(m.Input, m.Command)
 	check(err)
-	image := fmt.Sprintf(`<img src="%s" width="200% height="200%">`, string(output))
+	image := fmt.Sprintf(`<img src="http://plantuml.com/plantuml/svg/%s" width="200% height="200%">`, string(output))
 
 	return elem.TableData(vecty.Markup(vecty.UnsafeHTML(image)))
 }

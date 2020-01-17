@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/Joshcarp/sysl/pkg/sysl"
+	"github.com/Joshcarp/sysl_testing/pkg/sysl"
 	"github.com/sirupsen/logrus"
 
 	"sort"

@@ -7,7 +7,7 @@ import (
 
 	"gopkg.in/alecthomas/kingpin.v2"
 
-	sysl "github.com/Joshcarp/sysl/pkg/sysl"
+	sysl "github.com/Joshcarp/sysl_testing/pkg/sysl"
 	"github.com/sirupsen/logrus"
 )
 

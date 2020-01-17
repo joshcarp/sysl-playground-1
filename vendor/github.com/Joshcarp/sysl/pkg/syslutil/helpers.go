@@ -3,7 +3,7 @@ package syslutil
 import (
 	"strings"
 
-	sysl "github.com/Joshcarp/sysl/pkg/sysl"
+	sysl "github.com/Joshcarp/sysl_testing/pkg/sysl"
 	"github.com/sirupsen/logrus"
 )
 

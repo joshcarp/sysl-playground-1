@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"strings"
 
-	"github.com/Joshcarp/sysl/pkg/importer/openapi2conv"
+	"github.com/Joshcarp/sysl_testing/pkg/importer/openapi2conv"
 	"github.com/ghodss/yaml"
 
 	"github.com/getkin/kin-openapi/openapi2"

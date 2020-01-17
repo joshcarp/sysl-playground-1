@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/Joshcarp/sysl/pkg/syslutil"
+	"github.com/Joshcarp/sysl_testing/pkg/syslutil"
 	"github.com/spf13/afero"
 )
 

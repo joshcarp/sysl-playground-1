@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/Joshcarp/sysl/pkg/sysl"
+	"github.com/Joshcarp/sysl_testing/pkg/sysl"
 )
 
 func (v *ScriptView) writeCreateSQLForATable(

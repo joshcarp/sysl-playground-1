@@ -3,7 +3,7 @@ package syslutil
 import (
 	"sort"
 
-	sysl "github.com/Joshcarp/sysl/pkg/sysl"
+	sysl "github.com/Joshcarp/sysl_testing/pkg/sysl"
 )
 
 type StrSet map[string]struct{}

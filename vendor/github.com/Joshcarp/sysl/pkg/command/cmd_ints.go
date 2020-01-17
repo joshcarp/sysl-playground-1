@@ -3,8 +3,8 @@ package command
 import (
 	"regexp"
 
-	sysl "github.com/Joshcarp/sysl/pkg/sysl"
-	"github.com/Joshcarp/sysl/pkg/syslutil"
+	sysl "github.com/Joshcarp/sysl_testing/pkg/sysl"
+	"github.com/Joshcarp/sysl_testing/pkg/syslutil"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/alecthomas/kingpin.v2"
 )

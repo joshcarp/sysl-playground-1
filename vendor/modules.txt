@@ -2,22 +2,22 @@
 aqwari.net/xml/internal/dependency
 aqwari.net/xml/xmltree
 aqwari.net/xml/xsd
-# github.com/Joshcarp/sysl v0.5.1
-github.com/Joshcarp/sysl/pkg/command
-github.com/Joshcarp/sysl/pkg/database
-github.com/Joshcarp/sysl/pkg/eval
-github.com/Joshcarp/sysl/pkg/exporter
-github.com/Joshcarp/sysl/pkg/grammar
-github.com/Joshcarp/sysl/pkg/importer
-github.com/Joshcarp/sysl/pkg/importer/openapi2conv
-github.com/Joshcarp/sysl/pkg/mod
-github.com/Joshcarp/sysl/pkg/msg
-github.com/Joshcarp/sysl/pkg/parse
-github.com/Joshcarp/sysl/pkg/parser
-github.com/Joshcarp/sysl/pkg/pbutil
-github.com/Joshcarp/sysl/pkg/sysl
-github.com/Joshcarp/sysl/pkg/syslutil
-github.com/Joshcarp/sysl/pkg/validate
+# github.com/Joshcarp/sysl_testing v0.5.1
+github.com/Joshcarp/sysl_testing/pkg/command
+github.com/Joshcarp/sysl_testing/pkg/database
+github.com/Joshcarp/sysl_testing/pkg/eval
+github.com/Joshcarp/sysl_testing/pkg/exporter
+github.com/Joshcarp/sysl_testing/pkg/grammar
+github.com/Joshcarp/sysl_testing/pkg/importer
+github.com/Joshcarp/sysl_testing/pkg/importer/openapi2conv
+github.com/Joshcarp/sysl_testing/pkg/mod
+github.com/Joshcarp/sysl_testing/pkg/msg
+github.com/Joshcarp/sysl_testing/pkg/parse
+github.com/Joshcarp/sysl_testing/pkg/parser
+github.com/Joshcarp/sysl_testing/pkg/pbutil
+github.com/Joshcarp/sysl_testing/pkg/sysl
+github.com/Joshcarp/sysl_testing/pkg/syslutil
+github.com/Joshcarp/sysl_testing/pkg/validate
 # github.com/PuerkitoBio/purell v1.1.1
 github.com/PuerkitoBio/purell
 # github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578

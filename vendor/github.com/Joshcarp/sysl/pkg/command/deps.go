@@ -3,7 +3,7 @@ package command
 import (
 	"fmt"
 
-	sysl "github.com/Joshcarp/sysl/pkg/sysl"
+	sysl "github.com/Joshcarp/sysl_testing/pkg/sysl"
 )
 
 type AppElement struct {

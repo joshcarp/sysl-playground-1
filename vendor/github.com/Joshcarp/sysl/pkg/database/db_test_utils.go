@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/Joshcarp/sysl/pkg/syslutil"
+	"github.com/Joshcarp/sysl_testing/pkg/syslutil"
 	"github.com/stretchr/testify/assert"
 )
 

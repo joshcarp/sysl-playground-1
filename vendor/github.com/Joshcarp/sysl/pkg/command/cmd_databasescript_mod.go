@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/Joshcarp/sysl/pkg/database"
-	"github.com/Joshcarp/sysl/pkg/sysl"
+	"github.com/Joshcarp/sysl_testing/pkg/database"
+	"github.com/Joshcarp/sysl_testing/pkg/sysl"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/alecthomas/kingpin.v2"
 )

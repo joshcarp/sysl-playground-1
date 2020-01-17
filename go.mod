@@ -1,10 +1,10 @@
-module github.com/Joshcarp/sysl-playground
+module github.com/Joshcarp/sysl_testing-playground
 
 go 1.12
 
 require (
-	github.com/Joshcarp/sysl v0.5.1
-	github.com/Joshcarp/sysl_testing v0.4.1 // indirect
+	github.com/Joshcarp/sysl_testing v0.5.1
+	github.com/Joshcarp/sysl_testing_testing v0.4.1 // indirect
 	github.com/antlr/antlr4 v0.0.0-20200103163232-691acdc23f1f // indirect
 	github.com/asaskevich/govalidator v0.0.0-20200108200545-475eaeb16496 // indirect
 	github.com/go-openapi/analysis v0.19.7 // indirect

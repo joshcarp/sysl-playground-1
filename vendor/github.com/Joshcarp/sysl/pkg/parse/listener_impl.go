@@ -8,9 +8,9 @@ import (
 	"strconv"
 	"strings"
 
-	parser "github.com/Joshcarp/sysl/pkg/grammar"
-	sysl "github.com/Joshcarp/sysl/pkg/sysl"
-	"github.com/Joshcarp/sysl/pkg/syslutil"
+	parser "github.com/Joshcarp/sysl_testing/pkg/grammar"
+	sysl "github.com/Joshcarp/sysl_testing/pkg/sysl"
+	"github.com/Joshcarp/sysl_testing/pkg/syslutil"
 	"github.com/sirupsen/logrus"
 )
 

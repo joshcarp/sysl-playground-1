@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"regexp"
 
-	"github.com/Joshcarp/sysl/pkg/command"
+	"github.com/Joshcarp/sysl_testing/pkg/command"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/afero"
 )
@@ -26,9 +26,9 @@ func Parse(input, syslCommand string) (string, error) {
 	_, e := f.Write([]byte(input))
 	check(e)
 
-	// Replace any output files with project.svg
+	// Replace any output files with project.puml
 	re = regexp.MustCompile(`(?m)(?:-o)\s"?([\S]+)`)
-	syslCommand = re.ReplaceAllString(syslCommand, "-o project.svg")
+	syslCommand = re.ReplaceAllString(syslCommand, "-o project.uml")
 
 	args, err := parseCommandLine(syslCommand)
 	check(err)
@@ -36,9 +36,10 @@ func Parse(input, syslCommand string) (string, error) {
 	// Execute sysl
 	command.Main2(args, fs, logger, command.Main3)
 
-	output, err := afero.ReadFile(fs, "project.svg")
-
-	return string(output), err
+	output, err := afero.ReadFile(fs, "project.puml")
+	fmt.Println(string(output))
+	encoded, err := command.DeflateAndEncode([]byte(output))
+	return encoded, err
 }
 
 // parseCommandLine is from user laurent on stackoverflow to split commands into string slices

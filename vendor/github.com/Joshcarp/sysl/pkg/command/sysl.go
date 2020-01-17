@@ -6,9 +6,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/Joshcarp/sysl/pkg/parse"
-	sysl "github.com/Joshcarp/sysl/pkg/sysl"
-	"github.com/Joshcarp/sysl/pkg/syslutil"
+	"github.com/Joshcarp/sysl_testing/pkg/parse"
+	sysl "github.com/Joshcarp/sysl_testing/pkg/sysl"
+	"github.com/Joshcarp/sysl_testing/pkg/syslutil"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/afero"
 	"gopkg.in/alecthomas/kingpin.v2"

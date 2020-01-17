@@ -6,8 +6,8 @@ import (
 	"sort"
 	"strings"
 
-	sysl "github.com/Joshcarp/sysl/pkg/sysl"
-	"github.com/Joshcarp/sysl/pkg/syslutil"
+	sysl "github.com/Joshcarp/sysl_testing/pkg/sysl"
+	"github.com/Joshcarp/sysl_testing/pkg/syslutil"
 )
 
 //nolint:gochecknoglobals
